@@ -18,7 +18,7 @@ namespace GitHub_Copilot_Advance.Models
         public string Password { get; set; } = string.Empty;
 
         [Required]
-        [Compare(nameof(Password), ErrorMessage = "Confirm password must match the password.")]
+        [Compare(nameof(Password), ErrorMessage = "Passwords must match.")]
         public string ConfirmPassword { get; set; } = string.Empty;
     }
 }
