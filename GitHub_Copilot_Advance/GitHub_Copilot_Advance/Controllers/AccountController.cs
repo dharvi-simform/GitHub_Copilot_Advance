@@ -14,8 +14,6 @@ namespace GitHub_Copilot_Advance.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
-            // TODO: Add input validation
-            // Currently there is no validation — any input is accepted
             if (ModelState.IsValid)
             {
                 // Simulate successful registration
@@ -24,6 +22,37 @@ namespace GitHub_Copilot_Advance.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO: Replace with real authentication logic
+                if (model.Email == "admin@example.com" && model.Password == "Admin@123")
+                {
+                    TempData["Message"] = "Login successful!";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid email or password.");
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            TempData["Message"] = "You have been logged out.";
+            return RedirectToAction("Index", "Home");
         }
     }
 }
