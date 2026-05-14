@@ -12,6 +12,7 @@ namespace GitHub_Copilot_Advance.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -31,6 +32,7 @@ namespace GitHub_Copilot_Advance.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
