@@ -14,7 +14,7 @@ namespace GitHub_Copilot_Advance.Models
         [Required]
         [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; } = string.Empty;
-
+   
         [Display(Name = "Password")]
         [Required]
         [StringLength(100, MinimumLength = 8, ErrorMessage = "Password must be at least 8 characters long.")]
@@ -25,5 +25,9 @@ namespace GitHub_Copilot_Advance.Models
         [Required]
         [Compare(nameof(Password), ErrorMessage = "Passwords must match.")]
         public string ConfirmPassword { get; set; } = string.Empty;
+
+        [Display(Name = "Phone Number")]
+        [Phone(ErrorMessage = "Please enter a valid phone number.")]
+        public string? PhoneNumber { get; set; }
     }
 }
